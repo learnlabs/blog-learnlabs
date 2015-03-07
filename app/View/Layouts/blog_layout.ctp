@@ -16,9 +16,10 @@
 	<body>
 		<nav class="top-bar" data-topbar role="navigation">
 			<ul class="title-area">
-				<li>
-					<?php echo $this->Html->image('h1.png')?><h1> | Blog </h1>
+				<li class="name">
+					<h1><a><?php echo $this->Html->image('h1.png')?> | Blog </a></h1>
 				</li>
+				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
 			<section class="top-bar-section">
 				<ul class="right">
