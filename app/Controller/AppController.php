@@ -31,4 +31,40 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+	    public $components = array(
+        'Session',
+        'Auth' => array(
+
+            'authenticate' => array(
+                'User' => array(
+                    'userModel' => 'User',
+                    'fields' => array(
+                        'username' => 'username',
+                        'password' => 'password'
+                    )
+                ),
+                'authError' => 'Sorry you dont have access.!'
+            )
+        )
+    );
+
+    public function beforeFilter()
+    {
+
+        $this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'index_user');
+        $this->Auth->logoutRedirect = array('controller' => 'posts', 'action' => 'index');
+        $this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+		
+        //Logged In user variables
+        $this->set('isLoggedIn',$this->Auth->loggedIn());
+        $this->set('activeUser',$this->Session->read('Auth'));
+
+        $this->activeUser = $this->Session->read('Auth');
+        $this->isLoggedIn = $this->Auth->loggedIn();
+	}
+    public function isAuthorized($user) {
+        // Here is where we should verify the role and give access based on role
+        
+        return true;
+    }
 }
