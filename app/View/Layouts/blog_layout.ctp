@@ -28,7 +28,9 @@
 				</ul>
 			</section>
 		</nav>
-		
+		<div id="page-wrapper" >
+        	<?php echo $content_for_layout; ?>
+      	</div>
 		<?php
 			echo $this->Html->script('vendor/jquery.js');
 			echo $this->Html->script('foundation.min.js');
