@@ -9,6 +9,8 @@
 	    <?php
 	    	echo $this->Html->css('normalize.css');
 	    	echo $this->Html->css('foundation.css');
+	    	echo $this->Html->css('foundation-icons.css');
+	    	echo $this->Html->css('main.css');
 	    	echo $this->fetch('meta');
 	    	echo $this->fetch('css');
 	    ?>
@@ -23,18 +25,28 @@
 			</ul>
 			<section class="top-bar-section">
 				<ul class="right">
-					<li> <?php echo $this->Html->link('Subscribe',array('controller'=>'posts','action'=>'subscribe')) ?> </li>
-					<li> <?php echo $this->Html->link('Login',array('controller'=>'users','action'=>'login')) ?> </li>
-					<li> <?php echo $this->Html->link('Register',array('controller'=>'users','action'=>'register')) ?> </li>
+					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-notes')) . " Blog",array('controller' => 'posts', 'action' => 'index'),array('escape' => false)); ?></li>
+					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-pencil')) . " Subscribe",array('controller' => 'posts', 'action' => 'subscribe'),array('escape' => false)); ?></li>
+					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Login",array('controller' => 'users', 'action' => 'login'),array('escape' => false)); ?> </li>
+					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-checkbox')) . " Register",array('controller' => 'users', 'action' => 'register'),array('escape' => false)); ?> </li>
 				</ul>
 			</section>
 		</nav>
 		<div id="page-wrapper" >
         	<?php echo $content_for_layout; ?>
       	</div>
+      	<div class="alert-popup">
+            <?php
+                echo $this->Session->flash('error');
+                echo $this->Session->flash('success');
+                echo $this->Session->flash('auth');
+
+            ?>
+        </div>
 		<?php
 			echo $this->Html->script('vendor/jquery.js');
 			echo $this->Html->script('foundation.min.js');
+			echo $this->Html->script('foundation/foundation.alert.js');
 			echo $this->fetch('script');
 		?>
 		<script>
