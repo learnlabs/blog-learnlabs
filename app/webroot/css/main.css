@@ -1,8 +1,8 @@
 .alert-popup{
 	position: absolute;
-	right:70px;
-	top: 140px;
-	width: 300px;
+	right: 30px;
+	top: 100px;
+	width: 320px;
 	z-index: 1500;
 }
 .center-text{
@@ -11,4 +11,8 @@
 .center-text-2{
 	padding-left: 30%;
 	font-size: 14px;
+}
+.error-message{
+	font-size: 12px;
+	color: red;
 }

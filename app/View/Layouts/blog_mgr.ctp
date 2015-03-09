@@ -19,7 +19,7 @@
 		<nav class="top-bar" data-topbar role="navigation">
 			<ul class="title-area">
 				<li class="name">
-					<h1><a><?php echo $this->Html->image('h1.png')?> | Blog </a></h1>
+					<h1><a><?php echo $this->Html->image('h1.png')?> | Blog - manager</a></h1>
 				</li>
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
@@ -27,8 +27,12 @@
 				<ul class="right">
 					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-notes')) . " Blog",array('controller' => 'posts', 'action' => 'index'),array('escape' => false)); ?></li>
 					<!-- <li> <?php //echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-pencil')) . " Subscribe",array('controller' => 'posts', 'action' => 'subscribe'),array('escape' => false)); ?></li> -->
-					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Login",array('controller' => 'users', 'action' => 'login'),array('escape' => false)); ?> </li>
-					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-checkbox')) . " Register",array('controller' => 'users', 'action' => 'register'),array('escape' => false)); ?> </li>
+					<li class="has-dropdown">
+				        <a href="#"><i class="fi-user"></i></a>
+				        <ul class="dropdown">
+				          <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Blog",array('controller' => 'users', 'action' => 'logout'),array('escape' => false)); ?></li>
+				        </ul>
+				    </li>
 				</ul>
 			</section>
 		</nav>

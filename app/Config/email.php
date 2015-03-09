@@ -40,20 +40,31 @@
 class EmailConfig {
 
 	public $default = array(
-		'transport' => 'Mail',
-		'from' => 'you@localhost',
+		//'transport' => 'Mail',
+		//'from' => 'you@localhost',
 		//'charset' => 'utf-8',
 		//'headerCharset' => 'utf-8',
+		'host' => 'mail.learnlabs.int',
+        'port' => 587,
+        'username' => 'noreply@learnlabs.in',
+        'password' => 'noreply@learnlabs',
+        'transport' => 'Smtp',
 	);
-
+	public $gmail = array(
+        'host' => 'ssl://smtp.gmail.com',
+        'port' => 465,
+        'username' => 'lakhan.samani@actonate.com',
+        'password' => 'lakhanq1w2e3',
+        'transport' => 'Smtp',
+    );
 	public $smtp = array(
 		'transport' => 'Smtp',
-		'from' => array('site@localhost' => 'My Site'),
-		'host' => 'localhost',
-		'port' => 25,
+		'from' => array('noreply@learnlabs.in' => 'Learn Labs'),
+		'host' => 'md-in-21.webhostbox.net',
+		'port' => 465,
 		'timeout' => 30,
-		'username' => 'user',
-		'password' => 'secret',
+		'username' => 'noreply@learnlabs.in',
+		'password' => 'noreply@learnlabs',
 		'client' => null,
 		'log' => false,
 		//'charset' => 'utf-8',

@@ -2,7 +2,7 @@
 	App::uses('CakeEmail', 'Network/Email');
 	class User extends AppModel{
 		public $validate = array(
-			 'email' => array(	
+			 'username' => array(	
 				 'unique' => array(
 					'rule'    => 'isUnique',
 					'message' => 'This username is already in use'
