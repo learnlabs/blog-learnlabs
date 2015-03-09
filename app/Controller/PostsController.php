@@ -7,6 +7,8 @@
 	    }
 		public function index(){
 			$this->layout="blog_layout";
+			$posts=$this->Post->find('all');
+			$this->set('posts',$posts);
 		}
 
 		public function index_user(){
