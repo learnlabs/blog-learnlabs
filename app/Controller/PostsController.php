@@ -55,5 +55,10 @@
 	                }
 	            }
 		}
+		public function delete_post($id=null){
+			$this->Post->delete($id);      
+			$this->Session->setFlash("Post deleted successfully.",'default',array('class'=>'alert-box success'),'success');     				
+            $this->redirect(array('controller'=>'posts','action'=>'index_user'));
+		}
 	}
 ?>
