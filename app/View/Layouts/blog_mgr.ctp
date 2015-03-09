@@ -25,12 +25,12 @@
 			</ul>
 			<section class="top-bar-section">
 				<ul class="right">
-					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-notes')) . " Blog",array('controller' => 'posts', 'action' => 'index'),array('escape' => false)); ?></li>
-					<!-- <li> <?php //echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-pencil')) . " Subscribe",array('controller' => 'posts', 'action' => 'subscribe'),array('escape' => false)); ?></li> -->
+					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-notes')) . " Blog Posts",array('controller' => 'posts', 'action' => 'index_user'),array('escape' => false)); ?></li>
+					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-notes')) . " Write post",array('controller' => 'posts', 'action' => 'write_post'),array('escape' => false)); ?></li>
 					<li class="has-dropdown">
-				        <a href="#"><i class="fi-user"></i></a>
+				        <a href="#"><i class="fi-torso"></i><?php echo " User"?></a>
 				        <ul class="dropdown">
-				          <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Blog",array('controller' => 'users', 'action' => 'logout'),array('escape' => false)); ?></li>
+				          <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Logout",array('controller' => 'users', 'action' => 'logout'),array('escape' => false)); ?></li>
 				        </ul>
 				    </li>
 				</ul>

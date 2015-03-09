@@ -52,7 +52,7 @@ class AppController extends Controller {
         //Logged In user variables
         $this->set('isLoggedIn',$this->Auth->loggedIn());
         $this->set('activeUser',$this->Session->read('Auth'));
-
+        
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
     }
