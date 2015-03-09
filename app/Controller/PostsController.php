@@ -32,21 +32,28 @@
 			}
 		}
 		public function edit_post($id){
-			$this->layout="blog_mgr";
-			$this->set('user',$this->Session->read('Auth'));
-			$this->set('post',$this->Post->find)
-			if($this->request->is('post')){
-				$data=$this->data;
-				$json_dt=$data['Post'];
-				$data['Post']['dump']=json_encode($json_dt);
-				if($this->Post->save($data)){
-					$this->Session->setFlash('Post added successfully','default',array('class'=>'alert-box success radius'),'success');
-	            	$this->redirect(array('controller'=>'posts','action'=>'index_user'));
+				$this->set('user',$this->Session->read('Auth'));
+				$this->layout="blog_mgr";
+				if(empty($this->data)){
+	                $this->data=$this->Post->findById($id);
+	            }
+				else if(!$id){
+					 $this->Session->setFlash("Invalid post",'default',array('class'=>'alert-box alert'),'error');
+					 
 				}
-				else{
-					$this->Session->setFlash('Sorry error occurred','default',array('class'=>'alert-box alert radius'),'error');
-				}
-			}
+	            else{
+	            	$data=$this->request->data;
+	            	$json_dt=$data['Post'];
+					$data['Post']['dump']=json_encode($json_dt);
+	                if($this->Post->save($data)){
+	                    $this->Session->setFlash("Post Updated Successfully",'default',array('class'=>'alert-box success'),'success');
+	                    $this->redirect(array('controller'=>'posts','action'=>'index_user'));
+	                }
+	                else{
+	                    $this->Session->setFlash("Post not Updated",'default',array('class'=>'alert-box alert'),'error');
+	                 
+	                }
+	            }
 		}
 	}
 ?>

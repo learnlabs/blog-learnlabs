@@ -11,9 +11,9 @@
 					echo "<p style='text-align:justify'>".$p['Post']['body']."</p>";
 					echo "<hr/>";
 					echo "<div class='right'>";
-						echo $this->Html->link('Delete post',array('controller'=>'post','action'=>'delete_post',$p['Post']['id']),array('class'=>'button tiny radius alert'));
+						echo $this->Html->link('Delete post',array('controller'=>'posts','action'=>'delete_post',$p['Post']['id']),array('class'=>'button tiny radius alert'));
 						echo "&nbsp;&nbsp;";
-						echo $this->Html->link('Edit post',array('controller'=>'post','action'=>'edit_post',$p['Post']['id']),array('class'=>'button tiny radius default'));
+						echo $this->Html->link('Edit post',array('controller'=>'posts','action'=>'edit_post',$p['Post']['id']),array('class'=>'button tiny radius default'));
 					echo "</div>";
 					echo "<br/>";
 				echo "</div>";
