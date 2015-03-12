@@ -21,7 +21,7 @@
 		        'Form',
 		        'Basic'
 	        );
-	        $this->Auth->allow('login','forgot_password','subscribe','register');
+	        $this->Auth->allow('login','forgot_password','subscribe','register','activate_user');
 	    }
 	
 		
@@ -74,7 +74,7 @@
 					$body.="<b> email  </b>".$data['User']['username']."<br/>";
 					$body.="Thank you for becoming part of learn labs, you contribution is valuable to us. Please actiavate your account using following link";
 					$body.="http://localhost/freelance/blog-learn-labs/users/activate_user/".$this->User->getLastInsertId();
-					$Email = new CakeEmail($gmail);
+					$Email = new CakeEmail();
 					$Email->from(array('noreply@learnlabs.in' => 'Learnlabs Team'))
 						 ->to($data['User']['username'])//$data['Student']['email']
 					     ->subject('New User Registration')
