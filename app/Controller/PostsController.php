@@ -22,6 +22,7 @@
 			$this->set('user',$this->Session->read('Auth'));
 			if($this->request->is('post')){
 				$data=$this->data;
+				$data['Post']['body']=ereg_replace( "\n",'<br/>', $data['Post']['body']);
 				$json_dt=$data['Post'];
 				$data['Post']['dump']=json_encode($json_dt);
 				if($this->Post->save($data)){
@@ -37,7 +38,9 @@
 				$this->set('user',$this->Session->read('Auth'));
 				$this->layout="blog_mgr";
 				if(empty($this->data)){
-	                $this->data=$this->Post->findById($id);
+					$dt=$this->Post->findById($id);
+					$dt['Post']['body']=str_replace("<br/>", "\n", $dt['Post']['body']);
+	                $this->data=$dt;
 	            }
 				else if(!$id){
 					 $this->Session->setFlash("Invalid post",'default',array('class'=>'alert-box alert'),'error');
@@ -45,6 +48,7 @@
 				}
 	            else{
 	            	$data=$this->request->data;
+	            	$data['Post']['body']=ereg_replace( "\n",'<br/>', $data['Post']['body']);
 	            	$json_dt=$data['Post'];
 					$data['Post']['dump']=json_encode($json_dt);
 	                if($this->Post->save($data)){

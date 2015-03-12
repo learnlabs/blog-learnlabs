@@ -31,8 +31,9 @@
 			// $a=array();
 			// $a['name']='Lakhan Samani';
 			// $a['email']='lakhan.m.samani@gmail.com';
+			// $a['username']='lakhan.m.samani@gmail.com';
 			// $a['password']='123456';
-			// $this->User->save($a);
+			//$this->User->save($a);
 			if($this->Session->check('Auth.User')){
 				$this->redirect(array('action' => 'index'));		
 			}
