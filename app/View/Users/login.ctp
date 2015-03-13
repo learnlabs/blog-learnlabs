@@ -30,7 +30,11 @@
 		?>
 		</div>
 		<div class='auth-alert'>
-		<?php echo "<div style='color:red'>".$this->Session->flash('auth'); ?>
+		<?php 
+			echo "<div style='color:red'>".$this->Session->flash('auth'); 
+			echo $this->Session->flash('good');
+			echo $this->Session->flash('bad');
+		?>
 		</div>
 	</div>
 </div>

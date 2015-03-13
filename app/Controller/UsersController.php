@@ -41,11 +41,11 @@
 			// if we get the post information, try to authenticate
 			if ($this->request->is('post')) {
 				if ($this->Auth->login()) {
-					$this->Session->setFlash('Successfully logged in','default',array('class'=>'alert-box success radius'),'success');
+					//$this->Session->setFlash('Successfully logged in','default',array('class'=>'alert-box success radius'),'good');
 					$this->redirect($this->Auth->redirectUrl());
 					
 				} else {
-					$this->Session->setFlash('Invalid username or password OR Inactive user','default',array('class'=>'alert-box alert radius'),'error');
+					$this->Session->setFlash('Invalid username or password OR Inactive user','default',array('class'=>'alert-box alert radius'),'bad');
 				}
 			} 
 		}
