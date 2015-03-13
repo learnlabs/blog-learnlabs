@@ -32,19 +32,15 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
     public $components = array(
+
         'Session',
         'Auth' => array(
-            'authenticate' => array(
-                'User' => array(
-                    'userModel' => 'User',
-                    'fields' => array(
-                        'username' => 'username',
-                        'password' => 'password'
-                    )
-                ),
-            )
-        )
-    );
+            'loginRedirect' => array('controller' => 'posts', 'action' => 'index_user'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
+            'authError' => 'You must be logged in to view this page.',
+            'loginError' => 'Invalid Username or Password entered, please try again.'
+ 
+    ));
 
     public function beforeFilter(){
       
@@ -52,7 +48,6 @@ class AppController extends Controller {
         //Logged In user variables
         $this->set('isLoggedIn',$this->Auth->loggedIn());
         $this->set('activeUser',$this->Session->read('Auth'));
-        
         $this->activeUser = $this->Session->read('Auth');
         $this->isLoggedIn = $this->Auth->loggedIn();
     }
