@@ -25,6 +25,7 @@
 			</ul>
 			<section class="top-bar-section">
 				<ul class="right">
+					<li><a href='http://learnlabs.in/'><i class='fi-home'></i> Home</a> </li>
 					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-notes')) . " Blog",array('controller' => 'posts', 'action' => 'index'),array('escape' => false)); ?></li>
 					<!-- <li> <?php //echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-clipboard-pencil')) . " Subscribe",array('controller' => 'posts', 'action' => 'subscribe'),array('escape' => false)); ?></li> -->
 					<li> <?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Login",array('controller' => 'users', 'action' => 'login'),array('escape' => false)); ?> </li>
