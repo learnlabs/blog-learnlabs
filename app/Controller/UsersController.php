@@ -73,7 +73,7 @@
 					$body.="<b> Name  </b>".$data['User']['name']."<br/>";
 					$body.="<b> email  </b>".$data['User']['username']."<br/>";
 					$body.="Thank you for becoming part of learn labs, you contribution is valuable to us. Please actiavate your account using following link";
-					$body.="http://localhost/freelance/blog-learn-labs/users/activate_user/".$this->User->getLastInsertId();
+					$body.="http://blog.learnlabs.in/users/activate_user/".$this->User->getLastInsertId();
 					$Email = new CakeEmail();
 					$Email->from(array('noreply@learnlabs.in' => 'Learnlabs Team'))
 						 ->to($data['User']['username'])//$data['Student']['email']
