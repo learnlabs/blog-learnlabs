@@ -7,13 +7,13 @@
 	    }
 		public function index(){
 			$this->layout="blog_layout";
-			$posts=$this->Post->find('all');
+			$posts=$this->Post->find('all',array('order'=>'Post.created_at DESC'));
 			$this->set('posts',$posts);
 		}
 
 		public function index_user(){
 			$this->layout="blog_mgr";
-			$posts=$this->Post->find('all',array('conditions'=>array('Post.user_id'=>$this->Auth->user('id'))));
+			$posts=$this->Post->find('all',array('conditions'=>array('Post.user_id'=>$this->Auth->user('id')),'order'=>'Post.created_at DESC'));
 			$this->set('posts',$posts);
 			$this->set('user',$this->Session->read('Auth'));
 		}
