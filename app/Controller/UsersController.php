@@ -89,6 +89,33 @@
 	    		}
 	    	}
 	    }
+	    public function forgot_password(){
+	    	$this->layout='blog_layout';
+	    	if($this->request->is('post')){
+	    		$data=$this->request->data;
+	    		$result=$this->User->find('first',array('conditions'=>array('email'=>$data['User']['email'])));
+	    		if(!empty($result)){
+	    			$pass=substr(str_shuffle(str_repeat('ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',5)),0,6);
+					$result['User']['password']=$pass;
+					if($this->User->save($result)){
+						$body="<h1>Forgot password</h1>";
+						$body.="Your new password is:".$pass;
+						$Email = new CakeEmail();
+						$Email->from(array('noreply@learnlabs.in' => 'Learnlabs Team'))
+							 ->to($data['User']['email'])//$data['Student']['email']
+						     ->subject('Forgot password')
+							 ->viewVars(array('value' => $data['User']))
+						     ->emailFormat('html')
+							 ->send($body);
+		    			$this->Session->setFlash('Thank you, new password is sent to your email address','default',array('class'=>'alert-box success radius'),'success');
+		            	$this->redirect(array('controller'=>'users','action'=>'login'));
+					}
+	    		}
+	    		else{
+	    			$this->Session->setFlash('Sorry, email not found','default',array('class'=>'alert-box alert radius'),'error');
+	    		}
+	    	}
+	    }
 	    public function activate_user($id){
 	    	$user['User']['id']=$id;
 	    	$user['User']['is_active']=1;
