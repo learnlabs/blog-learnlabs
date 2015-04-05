@@ -3102,10 +3102,9 @@ meta.foundation-mq-topbar {
   .orbit-bullets {
     display: none; } }
 [data-magellan-expedition], [data-magellan-expedition-clone] {
-  background: #FFFFFF;
   z-index: 50;
   min-width: 100%;
-  padding: 10px; }
+  padding: 0px; }
   [data-magellan-expedition] .sub-nav, [data-magellan-expedition-clone] .sub-nav {
     margin-bottom: 0; }
     [data-magellan-expedition] .sub-nav dd, [data-magellan-expedition-clone] .sub-nav dd {
