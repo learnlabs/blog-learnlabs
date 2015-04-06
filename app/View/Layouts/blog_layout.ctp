@@ -19,7 +19,11 @@
 		<nav class="top-bar" data-topbar role="navigation" data-magellan-expedition="fixed" >
 			<ul class="title-area">
 				<li class="name">
-					<h1><a><?php echo $this->Html->image('h1.png')?> | Blog </a></h1>
+					<h1><a>
+					<?php 
+						echo $this->Html->image('finallogo.ico');
+						echo $this->Html->image('h1.png');
+					?> | Blog </a></h1>
 				</li>
 				<li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
 			</ul>
