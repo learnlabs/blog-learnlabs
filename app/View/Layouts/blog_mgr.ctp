@@ -16,7 +16,7 @@
 	    ?>
 	</head>
 	<body>
-		<nav class="top-bar" data-topbar role="navigation">
+		<nav class="top-bar" data-topbar role="navigation" data-magellan-expedition="fixed">
 			<ul class="title-area">
 				<li class="name">
 					<h1><a><?php echo $this->Html->image('h1.png')?> | Blog - manager</a></h1>
