@@ -21,7 +21,7 @@
 		        'Form',
 		        'Basic'
 	        );
-	        $this->Auth->allow('login','forgot_password','subscribe','register','activate_user');
+	        $this->Auth->allow('login','forgot_password','subscribe','register','activate_user','change_password');
 	    }
 	
 		
@@ -131,6 +131,23 @@
 	    		else{
 	    			$this->Session->setFlash('ID, not found','default',array('class'=>'alert-box alert radius'),'error');
 	    		}
+	    	}
+	    }
+	    public function change_password(){
+	    	$this->set('user',$this->Session->read('Auth'));
+	    	$this->layout='blog_mgr';
+	    	if($this->request->is('post')){
+	    		$data=$this->request->data;
+	    		$data['User']['id']=$data['User']['user_id'];
+	    		$data['User']['password']=$data['User']['newpassword'];
+	    		if($this->User->save($data)){
+	                    $this->Session->setFlash("Password Updated Successfully",'default',array('class'=>'alert-box success'),'success');
+	                    $this->redirect(array('controller'=>'posts','action'=>'index_user'));
+	                }
+	                else{
+	                    $this->Session->setFlash("Post not Updated",'default',array('class'=>'alert-box alert'),'error');
+	                 
+	                }
 	    	}
 	    }
 	}

@@ -35,7 +35,11 @@
 					<li class="has-dropdown">
 				        <a href="#"><i class="fi-torso"></i><?php echo " User"?></a>
 				        <ul class="dropdown">
-				          <li><?php echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Logout",array('controller' => 'users', 'action' => 'logout'),array('escape' => false)); ?></li>
+				          <li><?php 
+				          	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-pencil')) . " Change Password",array('controller' => 'users', 'action' => 'change_password'),array('escape' => false)); ?></li>
+				          <li><?php 
+				          	echo $this->Html->link($this->Html->tag('i', '', array('class' => 'fi-power')) . " Logout",array('controller' => 'users', 'action' => 'logout'),array('escape' => false)); ?>
+				          </li>
 				        </ul>
 				    </li>
 				</ul>
