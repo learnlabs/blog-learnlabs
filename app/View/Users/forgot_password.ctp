@@ -17,7 +17,8 @@
 				'type'=>'submit',
 				'div'=>false,
 				'label'=>false,
-				'class'=>'button expand small radius'
+				'class'=>'button expand small radius',
+				'onclick' => '$("submit").disabled = true;'
 			));
 			echo $this->Form->end();
 		?>
