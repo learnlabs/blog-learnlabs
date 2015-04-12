@@ -1,8 +1,9 @@
 <br/>
 <br/>
 <div class="row">
-	<div class="large-5 medium-6 small-8 colums medium-offset-3 small-offset-2 large-offset-4 panel">
-		<h2> Change Password </h2>
+	<div class="large-4 medium-6 small-8 colums medium-offset-3 small-offset-2 large-offset-4">
+		<div class='panel'>
+		<h3> Change Password </h3>
 		<?php
 			echo $this->Form->create('User',array('controller'=>'users','action'=>'change_password'));
 			echo $this->Form->input('user_id',array(
@@ -25,5 +26,6 @@
 			));
 			echo $this->Form->end();
 		?>
+		</div>
 	</div>
 </div>
